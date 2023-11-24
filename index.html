@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINE LIFF Login</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+
+    <script>
+        window.onload = function () {
+            // Initialize LIFF
+            liff.init({
+                liffId: '2001803237-GPaWyDag'
+            })
+                .then(() => {
+                    // Check if the user is logged in
+                    if (!liff.isLoggedIn()) {
+                        // Open the external browser for login
+                        liff.login({ redirectUri: "https://liff.line.me/2001803237-GPaWyDag" });
+                    } else {
+                        // User is already logged in, proceed with your application logic
+                        // ...
+                    }
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        };
+    </script>
+
+</body>
+</html>
